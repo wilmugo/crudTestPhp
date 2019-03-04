@@ -17,11 +17,25 @@
   <h1>C: insertar</h1>
   <?php 
     // $alumno = [
-    //   'nombre' => 'Maria',
-    //   'apellido' => 'Gomez',
-    //   'email' => 'mariagomez@gmail.com'
+    //   'nombre' => 'Carlos',
+    //   'apellido' => 'Pascal',
+    //   'email' => 'carlospascal@gmail.com'
     // ];
     // $estudiante->insertar($alumno);
+  ?>
+  <h1>U: actualizar</h1>
+  <?php
+    // $alumno = [
+    //   'nombre' => 'Rosario',
+    //   'apellido' => 'Tavares',
+    //   'email' => 'mariagomez@gmail.com'
+    // ];
+    // $estudiante->actualizar($alumno);
+  ?>
+  <h1>D: eliminar</h1>
+  <?php
+    $erase = ['email' => 'carlospascal@gmail.com'];
+    $estudiante->eliminar('', $erase);
   ?>
   <h1>R: consultar</h1>
   <?php
@@ -29,12 +43,6 @@
     foreach ($consulta as $est) {
       echo $est['nombre'] . " " . $est['apellido'] . ' ' . $est['id'] . '<br>';
     }
-  ?>
-  <h1>U: actualizar</h1>
-  <?php
-  ?>
-  <h1>D: eliminar</h1>
-  <?php
   ?>
 </body>
 </html>

@@ -41,11 +41,47 @@
     public function actualizar($registro)
     {
       $conexion = parent::conectar();
+      try {
+
+        // $query = "UPDATE ". $this->tabla . " SET nombre=:nombre, apellido=:apellido WHERE email=:email";
+        $query = "UPDATE {$this->tabla} SET nombre=:nombre, apellido=:apellido WHERE email=:email";
+        $conexion->prepare($query)->execute($registro);
+        echo "se logro actualizar la base de datos";
+
+      } catch (Exception $th) {
+        exit("Error: ". $th->getMessage());
+      }
     }
 
     public function eliminar($accion, $eliminar)
     {
       $conexion = parent::conectar();
+      if ($accion == 'todos') {
+        
+        try {
+
+          $query = "DELETE FROM {$this->tabla}";
+          $conexion->prepare($query)->execute();
+          echo "se ha eliminado todos los registros ";
+
+        } catch (Exception $th) {
+          exit("Error: ". $th->getMessage());
+        }
+
+      } else {
+        
+        try {
+
+          $query = "DELETE FROM {$this->tabla} WHERE email=:email";
+          $conexion->prepare($query)->execute($eliminar);
+          echo "se ha eliminado el registro {$eliminar['email']}";
+
+        } catch (Exception $th) {
+          exit("Error: ". $th->getMessage());
+        }
+
+      }
+      
     }
 
   }
