@@ -18,9 +18,8 @@
       try {
 
         $dsn = "mysql:host=".self::$db_servidor.";dbname=".self::$db_nombre;
-        $pdo = new PDO($dsn, self::$db_usuario, self::$db_pass);
-        $pdo->exec("SET CHATACTER SET ". self::$db_charset);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo = new PDO($dsn, self::$db_usuario, self::$db_pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $pdo->exec("SET CHARACTER SET ". self::$db_charset);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
         return $pdo;
 
@@ -35,7 +34,7 @@
     }
 
     #crud
-    abstract protected function insertar();
+    abstract protected function insertar($registro);
     abstract protected function consultar();
     abstract protected function actualizar($registro);
     abstract protected function eliminar($accion, $elmininar);

@@ -9,47 +9,20 @@
     public $email;
     private $tabla = 'estudiantes';
 
-    // public function insertar($registro)
-    // {
-    //   $conexion = parent::conectar();
-    //   try {
-
-    //     $query = "INSERT INTO ". $this->tabla . " SET nombre=:nombre, apellido=:apellido, email=:email";
-    //     $insertar = $conexion->prepare($query)->execute($registro);
-
-    //     echo " he insertado el registro ";
-
-    //   } catch (Exception $th) {
-    //     exit("Error: ". $th->getMessage());
-    //   }
-    // }
-
-    
-    public function insertar()
+    public function insertar($registro)
     {
       $conexion = parent::conectar();
       try {
 
-        // $this->nombre = $_POST['nombre'];
-        // $this->apellido = $_POST['apellido'];
-        // $this->email = $_POST['email'];
-        $this->nombre = filter_input(INPUT_POST, 'nombre');
-        $this->apellido = filter_input(INPUT_POST, 'apellido');
-        $this->email = filter_input(INPUT_POST, 'email');
-
-        // $query = "INSERT INTO ". $this->tabla . " SET nombre=:nombre, apellido=:apellido, email=:email";
-        // $insertar = $conexion->prepare($query)->execute($registro);
-
-        $query = "INSERT INTO {$this->tabla} (nombre, apellido, email) VALUES ({$this->nombre},{$this->apellido},{$this->email})";
-
-        $conexion->prepare($query)->execute();
-
-        // echo " he insertado el registro ";
+        $query = "INSERT INTO ". $this->tabla . " SET nombre=:nombre, apellido=:apellido, email=:email";
+        $insertar = $conexion->prepare($query)->execute($registro);
 
       } catch (Exception $th) {
         exit("Error: ". $th->getMessage());
       }
     }
+
+    
     
     public function consultar()
     {

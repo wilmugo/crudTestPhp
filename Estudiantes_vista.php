@@ -15,7 +15,7 @@
 <body>
 
   <h1>C: insertar</h1>
-  <form action method="POST" onsubmit=<?php $estudiante->insertar()?>>
+  <form method="POST" action="Estudiantes_vista.php">
     <p>
       <label for="nombre">Nombre</label>
       <input type="text" name="nombre">
@@ -32,12 +32,14 @@
 
   </form>
   <?php 
-    // $alumno = [
-    //   'nombre' => 'Carlos',
-    //   'apellido' => 'Pascal',
-    //   'email' => 'carlospascal@gmail.com'
-    // ];
-    // $estudiante->insertar($alumno);
+  if($_POST){
+    $alumno = [
+      'nombre' => $_POST['nombre'],
+      'apellido' => $_POST['apellido'],
+      'email' => $_POST['email']
+    ];
+    $estudiante->insertar($alumno);
+  }
   ?>
   <h1>U: actualizar</h1>
   <?php
@@ -50,8 +52,8 @@
   ?>
   <h1>D: eliminar</h1>
   <?php
-    $erase = ['email' => 'carlospascal@gmail.com'];
-    $estudiante->eliminar('', $erase);
+    // $erase = ['email' => 'carlospascal@gmail.com'];
+    // $estudiante->eliminar('', $erase);
   ?>
   <h1>R: consultar</h1>
   <?php
