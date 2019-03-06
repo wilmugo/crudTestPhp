@@ -35,7 +35,7 @@
     }
 
     #crud
-    abstract protected function insertar($registro);
+    abstract protected function insertar();
     abstract protected function consultar();
     abstract protected function actualizar($registro);
     abstract protected function eliminar($accion, $elmininar);

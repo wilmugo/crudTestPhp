@@ -15,6 +15,22 @@
 <body>
 
   <h1>C: insertar</h1>
+  <form action method="POST" onsubmit=<?php $estudiante->insertar()?>>
+    <p>
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre">
+    </p>
+    <p>
+      <label for="apellido">Apellido</label>
+      <input type="text" name="apellido">
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input type="email" name="email">
+    </p>
+    <input type="submit" value="Guardar">
+
+  </form>
   <?php 
     // $alumno = [
     //   'nombre' => 'Carlos',
